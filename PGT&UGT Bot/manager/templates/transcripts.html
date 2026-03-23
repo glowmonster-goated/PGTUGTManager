@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel filter-panel">
+  <div class="section-head">
+    <div>
+      <span class="panel-kicker">Case Search</span>
+      <h3>Filter the archive</h3>
+    </div>
+    <span class="support-chip">{{ case_metrics.filtered }} results</span>
+  </div>
+
+  <form class="filter-form" method="get" action="/cases">
+    <input type="search" name="q" value="{{ search_query }}" placeholder="Search by ticket ID, opener, participant, or user ID">
+    <select name="section">
+      {% for option in section_options %}
+        <option value="{{ option.value }}" {% if section_filter == option.value %}selected{% endif %}>{{ option.label }}</option>
+      {% endfor %}
+    </select>
+    <select name="state">
+      {% for option in state_options %}
+        <option value="{{ option.value }}" {% if state_filter == option.value %}selected{% endif %}>{{ option.label }}</option>
+      {% endfor %}
+    </select>
+    <button class="primary-button" type="submit">Apply Filters</button>
+  </form>
+</section>
+
+<section class="metric-strip">
+  <article class="metric-card panel"><span>Filtered</span><strong>{{ case_metrics.filtered }}</strong></article>
+  <article class="metric-card panel"><span>Open</span><strong>{{ case_metrics.open }}</strong></article>
+  <article class="metric-card panel"><span>Closed</span><strong>{{ case_metrics.closed }}</strong></article>
+  <article class="metric-card panel"><span>Deleted</span><strong>{{ case_metrics.deleted }}</strong></article>
+  <article class="metric-card panel"><span>With Punishments</span><strong>{{ case_metrics.with_punishments }}</strong></article>
+</section>
+
+<section class="content-grid content-grid-wide">
+  <div class="card-grid">
+    {% for record in case_records %}
+      <a class="panel case-card" href="/transcripts/{{ record.ticket_id }}">
+        <div class="badge-row">
+          <span class="section-badge section-{{ record.section }}">{{ record.section_label }}</span>
+          <span class="state-badge">{{ record.state_label }}</span>
+        </div>
+        <h3>{{ record.channel_name }}</h3>
+        <p class="case-owner">{{ record.owner_label }} · {{ record.owner_id }}</p>
+        <div class="detail-grid-mini">
+          <div><small>Messages</small><strong>{{ record.messages }}</strong></div>
+          <div><small>Attachments</small><strong>{{ record.attachments }}</strong></div>
+          <div><small>Participants</small><strong>{{ record.participant_count }}</strong></div>
+          <div><small>Punishments</small><strong>{{ record.linked_punishment_count }}</strong></div>
+        </div>
+        {% if record.participant_labels %}
+          <p class="muted-copy">Roster: {{ record.participant_labels|join(", ") }}</p>
+        {% endif %}
+        <p class="muted-copy">Activity: {{ record.activity_at|datetime }}</p>
+      </a>
+    {% else %}
+      <article class="panel empty-panel">
+        <h3>No cases match this search</h3>
+        <p>Try a broader user ID, opener name, or ticket section.</p>
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="stack-grid">
+    <article class="panel">
+      <span class="panel-kicker">Archive Notes</span>
+      <h3>What this page covers</h3>
+      <div class="text-list">
+        <p>Open, closed, and deleted tickets can all live here if your Discord role is allowed to view them.</p>
+        <p>Case cards pull linked punishments, participants, movement history, and attachment counts into one browseable list.</p>
+        <p>Transcript privacy rules still apply, so appeal and management cases stay gated by role.</p>
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="panel-kicker">Recent Punishments</span>
+      <h3>Linked moderation activity</h3>
+      <div class="card-list">
+        {% for punishment in recent_punishments %}
+          <article class="activity-row">
+            <div>
+              <div class="badge-row">
+                <span class="section-badge section-neutral">{{ punishment.action }}</span>
+                <span class="state-badge">{{ punishment.status }}</span>
+              </div>
+              <strong>User {{ punishment.user_id }}</strong>
+              <p>{{ punishment.rule_label }}</p>
+            </div>
+            <small>{{ punishment.created_at }}</small>
+          </article>
+        {% else %}
+          <p class="muted-copy">No visible punishment activity right now.</p>
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}

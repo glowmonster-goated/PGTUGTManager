@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel filter-panel">
+  <div class="section-head">
+    <div>
+      <span class="panel-kicker">Moderation Search</span>
+      <h3>Filter punishment records</h3>
+    </div>
+    <span class="support-chip">{{ punishment_metrics.filtered }} visible</span>
+  </div>
+
+  <form class="filter-form" method="get" action="/punishments">
+    <input type="search" name="q" value="{{ search_query }}" placeholder="Search by user ID, rule, proof, or source">
+    <select name="action">
+      {% for option in action_options %}
+        <option value="{{ option.value }}" {% if action_filter == option.value %}selected{% endif %}>{{ option.label }}</option>
+      {% endfor %}
+    </select>
+    <select name="status">
+      {% for option in status_options %}
+        <option value="{{ option.value }}" {% if status_filter == option.value %}selected{% endif %}>{{ option.label }}</option>
+      {% endfor %}
+    </select>
+    <button class="primary-button" type="submit">Apply Filters</button>
+  </form>
+</section>
+
+<section class="metric-strip">
+  <article class="metric-card panel"><span>Total Visible</span><strong>{{ punishment_metrics.total }}</strong></article>
+  <article class="metric-card panel"><span>Filtered</span><strong>{{ punishment_metrics.filtered }}</strong></article>
+  <article class="metric-card panel"><span>Active</span><strong>{{ punishment_metrics.active }}</strong></article>
+  <article class="metric-card panel"><span>With Proof</span><strong>{{ punishment_metrics.proof }}</strong></article>
+</section>
+
+<section class="content-grid content-grid-wide">
+  <div class="stack-grid">
+    {% for punishment in punishment_records %}
+      <article class="panel punishment-card">
+        <div class="section-head">
+          <div class="badge-row">
+            <span class="section-badge section-neutral">{{ punishment.action }}</span>
+            <span class="state-badge">{{ punishment.status }}</span>
+          </div>
+          <small>{{ punishment.created_at }}</small>
+        </div>
+        <h3>User {{ punishment.user_id }}</h3>
+        <p class="muted-copy">{{ punishment.rule_label }} · {{ punishment.duration_text }}</p>
+        <div class="text-list">
+          <p><strong>Reason:</strong> {{ punishment.reason }}</p>
+          <p><strong>Source:</strong>
+            {% if punishment.ticket_url %}
+              <a href="{{ punishment.ticket_url }}">{{ punishment.source_label }}</a>
+            {% else %}
+              {{ punishment.source_label }}
+            {% endif %}
+          </p>
+          <p><strong>Ends:</strong> {{ punishment.ends_at }}</p>
+          {% if punishment.proof_url %}
+            <p><strong>Proof:</strong> <a href="{{ punishment.proof_url }}" target="_blank" rel="noreferrer">{{ punishment.proof_name }}</a></p>
+          {% else %}
+            <p><strong>Proof:</strong> No proof saved</p>
+          {% endif %}
+        </div>
+      </article>
+    {% else %}
+      <article class="panel empty-panel">
+        <h3>No punishments match this filter</h3>
+        <p>Try removing one of the filters or searching by user ID instead.</p>
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="stack-grid">
+    <article class="panel">
+      <span class="panel-kicker">Action Split</span>
+      <h3>Visible actions</h3>
+      <div class="leaderboard-grid">
+        {% for key, value in action_totals.items() %}
+          <div class="leader-row"><span>{{ key|title }}</span><strong>{{ value }}</strong></div>
+        {% else %}
+          <p class="muted-copy">No action data yet.</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="panel-kicker">Status Split</span>
+      <h3>Record health</h3>
+      <div class="leaderboard-grid">
+        {% for key, value in status_totals.items() %}
+          <div class="leader-row"><span>{{ key|title }}</span><strong>{{ value }}</strong></div>
+        {% else %}
+          <p class="muted-copy">No status data yet.</p>
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}

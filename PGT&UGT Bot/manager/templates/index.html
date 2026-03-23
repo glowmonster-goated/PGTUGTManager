@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-banner hero-public">
+  <div class="hero-copy panel">
+    <span class="panel-kicker">Unified Staff Website</span>
+    <h2>{{ brand_name }} turns ticket history into a real moderation workspace.</h2>
+    <p>
+      Staff can review cases, browse punishments, track evidence, and build user context without
+      bouncing between channels, screenshots, and old logs.
+    </p>
+    <div class="button-row">
+      <a class="primary-button" href="{{ login_url }}">Log in with Discord</a>
+      <span class="support-chip">Role-based transcript access applies automatically</span>
+    </div>
+  </div>
+
+  <div class="stack-grid">
+    <article class="panel feature-panel">
+      <span class="panel-kicker">Case Files</span>
+      <h3>Every transcript stays attached to its metadata</h3>
+      <p>Openers, participants, linked punishments, movement history, and saved evidence all stay tied together.</p>
+    </article>
+    <article class="panel feature-panel">
+      <span class="panel-kicker">Staff Dossiers</span>
+      <h3>Build context around users fast</h3>
+      <p>Search users by ID or name and follow their visible cases, proof-backed punishments, and aliases.</p>
+    </article>
+    <article class="panel feature-panel">
+      <span class="panel-kicker">Expansion Ready</span>
+      <h3>Built to hold more tools later</h3>
+      <p>The site is already structured like a staff hub, so notes, queues, season tools, and dashboards can slot in later.</p>
+    </article>
+  </div>
+</section>
+{% endblock %}

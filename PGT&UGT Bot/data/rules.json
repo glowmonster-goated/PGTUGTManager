@@ -1,0 +1,1257 @@
+{
+  "rules": [
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.1.A.1",
+      "label": "0.1.A - Racially discriminatory language (1st offense)",
+      "reason": "Using discriminatory or stereotypical language based on race.",
+      "notes": "Excludes slurs."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.1.A.2",
+      "label": "0.1.A - Racially discriminatory language (2nd offense)",
+      "reason": "Repeated discriminatory or stereotypical language based on race."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.1.B.1",
+      "label": "0.1.B - Racial slur usage (1st offense)",
+      "reason": "Using racial slurs.",
+      "notes": "Context is not considered."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.1.B.2",
+      "label": "0.1.B - Racial slur usage (2nd offense)",
+      "reason": "Repeated racial slur usage."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "1-3 Month Ban",
+      "id": "0.1.C.1",
+      "label": "0.1.C - Sharing racist media (1st offense)",
+      "reason": "Sharing racist or discriminatory media.",
+      "notes": "Context is considered. Apply the exact duration manually."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "6 Month Ban - Perm Ban",
+      "id": "0.1.C.2",
+      "label": "0.1.C - Sharing racist media (2nd offense)",
+      "reason": "Repeated sharing of racist or discriminatory media.",
+      "notes": "Apply the exact duration manually."
+    },
+
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warn",
+      "id": "0.2.A.WARN",
+      "label": "0.2.A - Hateful LGBTQ+ language not directed at anyone",
+      "reason": "Using hateful LGBTQ+ language in a non-directed context.",
+      "notes": "Use this when the rulebook says to warn first."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.2.A.1",
+      "label": "0.2.A - Hateful LGBTQ+ language (1st offense)",
+      "reason": "Using hateful language toward the LGBTQ+ community."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.2.A.2",
+      "label": "0.2.A - Hateful LGBTQ+ language (2nd offense)",
+      "reason": "Repeated hateful language toward the LGBTQ+ community."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Profile Removal Request / 3 Month Ban if ignored",
+      "id": "0.2.B",
+      "label": "0.2.B - Homophobic profile content",
+      "reason": "Using profile elements to represent homophobic concepts.",
+      "notes": "Request profile removal first. Ban if they refuse."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.2.C.1",
+      "label": "0.2.C - LGBTQ+ slur usage (1st offense)",
+      "reason": "Using slurs targeting the LGBTQ+ community."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.2.C.2",
+      "label": "0.2.C - LGBTQ+ slur usage (2nd offense)",
+      "reason": "Repeated use of LGBTQ+ slurs."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "0.2.D.1",
+      "label": "0.2.D - Anti-LGBTQ+ media (1st offense)",
+      "reason": "Sharing anti-LGBTQ+ media."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.2.D.2",
+      "label": "0.2.D - Anti-LGBTQ+ media (2nd offense)",
+      "reason": "Repeated sharing of anti-LGBTQ+ media."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.2.D.3",
+      "label": "0.2.D - Anti-LGBTQ+ media (3rd offense)",
+      "reason": "Persistent sharing of anti-LGBTQ+ media."
+    },
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warn",
+      "id": "0.2.E.1",
+      "label": "0.2.E - Homophobic wording as insult (1st offense)",
+      "reason": "Using wording that can be interpreted as homophobic."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.2.E.2",
+      "label": "0.2.E - Homophobic wording as insult (2nd offense)",
+      "reason": "Repeated use of homophobic wording as an insult."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.2.E.3",
+      "label": "0.2.E - Homophobic wording as insult (3rd offense)",
+      "reason": "Continued use of homophobic wording as an insult."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.2.E.4",
+      "label": "0.2.E - Homophobic wording as insult (4th offense)",
+      "reason": "Persistent use of homophobic wording as an insult."
+    },
+
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warning and Content Removal",
+      "id": "0.3.A.1",
+      "label": "0.3.A - Minor NSFW solicitation (1st offense)",
+      "reason": "Posting minor NSFW content or solicitation."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "0.3.A.2",
+      "label": "0.3.A - Minor NSFW solicitation (2nd offense)",
+      "reason": "Repeated minor NSFW content or solicitation."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 259200,
+      "duration_text": "3 Day Ban",
+      "id": "0.3.A.3",
+      "label": "0.3.A - Minor NSFW solicitation (3rd offense)",
+      "reason": "Continued minor NSFW content or solicitation."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Ban",
+      "id": "0.3.B.1",
+      "label": "0.3.B - Medium NSFW solicitation (1st offense)",
+      "reason": "Posting medium NSFW content or solicitation."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Ban",
+      "id": "0.3.B.2",
+      "label": "0.3.B - Medium NSFW solicitation (2nd offense)",
+      "reason": "Repeated medium NSFW content or solicitation."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.3.B.3",
+      "label": "0.3.B - Medium NSFW solicitation (3rd offense)",
+      "reason": "Continued medium NSFW content or solicitation."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 31536000,
+      "duration_text": "1 Year Ban",
+      "id": "0.3.C.1",
+      "label": "0.3.C - Major NSFW solicitation (1st offense)",
+      "reason": "Posting explicit NSFW content or solicitation."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Permanent Ban",
+      "id": "0.3.C.2",
+      "label": "0.3.C - Major NSFW solicitation (2nd offense)",
+      "reason": "Repeated explicit NSFW content or solicitation."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Profile Removal Request / 1 Year Ban if ignored",
+      "id": "0.3.D",
+      "label": "0.3.D - NSFW profile promotion",
+      "reason": "Promoting NSFW media through profile elements.",
+      "notes": "Request profile cleanup first."
+    },
+
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.4.A.1",
+      "label": "0.4.A - Cyber bullying / targeted aggression (1st offense)",
+      "reason": "Cyber bullying or targeted aggression that causes harm."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Ban",
+      "id": "0.4.A.2",
+      "label": "0.4.A - Cyber bullying / targeted aggression (2nd offense)",
+      "reason": "Repeated cyber bullying or targeted aggression."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.4.A.3",
+      "label": "0.4.A - Cyber bullying / targeted aggression (3rd offense)",
+      "reason": "Persistent cyber bullying or targeted aggression."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "0.4.B.1",
+      "label": "0.4.B - Repeated negative opinions toward an individual",
+      "reason": "Repeatedly voicing negative opinions beyond playful banter."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Escalate based on severity",
+      "id": "0.4.B.2",
+      "label": "0.4.B - Repeated dispute escalation",
+      "reason": "Consistent disputes or repeated targeted negativity.",
+      "notes": "Rulebook says to follow with more intense mutes or bans based on severity."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.4.C.1",
+      "label": "0.4.C - Mocking trauma or major tragedies (1st offense)",
+      "reason": "Mocking traumatic events or significant tragedies."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.4.C.2",
+      "label": "0.4.C - Mocking trauma or major tragedies (2nd offense)",
+      "reason": "Repeatedly mocking trauma or major tragedies."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.4.D.1",
+      "label": "0.4.D - Sexual harassment (1st offense)",
+      "reason": "Sexual harassment."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.4.D.2",
+      "label": "0.4.D - Sexual harassment (2nd offense)",
+      "reason": "Repeated sexual harassment."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.4.D.3",
+      "label": "0.4.D - Threat of rape",
+      "reason": "Threatening rape.",
+      "notes": "Perm ban no matter the context."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "7 Day Mute",
+      "id": "0.4.E.1",
+      "label": "0.4.E - Using rape in gamer vocabulary (1st offense)",
+      "reason": "Using the word rape casually in gamer vocabulary."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2678400,
+      "duration_text": "31 Day Mute",
+      "id": "0.4.E.2",
+      "label": "0.4.E - Using rape in gamer vocabulary (2nd offense)",
+      "reason": "Repeated casual use of rape in gamer vocabulary."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Mute",
+      "id": "0.4.E.3",
+      "label": "0.4.E - Using rape in gamer vocabulary (3rd offense)",
+      "reason": "Persistent casual use of rape in gamer vocabulary."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "0.4.F.1",
+      "label": "0.4.F - Spam pinging (1st offense)",
+      "reason": "Spam pinging or pinging without permission."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "0.4.F.2",
+      "label": "0.4.F - Spam pinging (2nd offense)",
+      "reason": "Repeated spam pinging or pinging without permission."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 15552000,
+      "duration_text": "6 Month Mute",
+      "id": "0.4.F.3",
+      "label": "0.4.F - Spam pinging (3rd offense)",
+      "reason": "Continued spam pinging or pinging without permission."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.4.F.4",
+      "label": "0.4.F - Spam pinging (4th offense)",
+      "reason": "Persistent spam pinging or pinging without permission."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.4.G.1",
+      "label": "0.4.G - Encouraging self-harm (1st offense)",
+      "reason": "Encouraging or suggesting self-harm or suicide."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.4.G.2",
+      "label": "0.4.G - Encouraging self-harm (2nd offense)",
+      "reason": "Repeated encouragement of self-harm or suicide."
+    },
+
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.5.A",
+      "label": "0.5 - Pedophilia / grooming",
+      "reason": "Any grooming or inappropriate actions between adult and child."
+    },
+
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "0.6.A.1",
+      "label": "0.6.A - Religious debate (1st offense)",
+      "reason": "Engaging in debates surrounding religion or deity ontology."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.6.A.2",
+      "label": "0.6.A - Religious debate (2nd offense)",
+      "reason": "Repeated religion debate."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 15552000,
+      "duration_text": "6 Month Mute",
+      "id": "0.6.A.3",
+      "label": "0.6.A - Religious debate (3rd offense)",
+      "reason": "Continued religion debate."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.6.A.4",
+      "label": "0.6.A - Religious debate (4th offense)",
+      "reason": "Persistent religion debate despite prior action."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.6.B.1",
+      "label": "0.6.B - Mocking religion (1st offense)",
+      "reason": "Mocking religion or treating beliefs as unintelligent."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Ban",
+      "id": "0.6.B.2",
+      "label": "0.6.B - Mocking religion (2nd offense)",
+      "reason": "Repeated mocking of religion."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 15552000,
+      "duration_text": "6 Month Mute",
+      "id": "0.6.B.3",
+      "label": "0.6.B - Mocking religion (3rd offense)",
+      "reason": "Continued mocking of religion."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.6.B.4",
+      "label": "0.6.B - Mocking religion (4th offense)",
+      "reason": "Persistent mocking of religion."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.6.C.1",
+      "label": "0.6.C - Anti-Semitic behavior (1st offense)",
+      "reason": "Discriminating against individuals of Jewish heritage."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.6.C.2",
+      "label": "0.6.C - Anti-Semitic behavior (2nd offense)",
+      "reason": "Repeated anti-Semitic behavior."
+    },
+
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.7.A.1",
+      "label": "0.7.A - Promoting sexist ideals (1st offense)",
+      "reason": "Promoting or upholding sexist ideals."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Mute",
+      "id": "0.7.A.2",
+      "label": "0.7.A - Promoting sexist ideals (2nd offense)",
+      "reason": "Repeated promotion of sexist ideals."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.7.A.3",
+      "label": "0.7.A - Promoting sexist ideals (3rd offense)",
+      "reason": "Persistent promotion of sexist ideals."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.7.B.1",
+      "label": "0.7.B - Sexist media/content (1st offense)",
+      "reason": "Sharing sexist media or content."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Mute",
+      "id": "0.7.B.2",
+      "label": "0.7.B - Sexist media/content (2nd offense)",
+      "reason": "Repeated sharing of sexist media or content."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.7.B.3",
+      "label": "0.7.B - Sexist media/content (3rd offense)",
+      "reason": "Persistent sharing of sexist media or content."
+    },
+
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.8.A.1",
+      "label": "0.8.A - Support for abhorrent political figures (1st offense)",
+      "reason": "Expressing support for abhorrent political figures."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.8.A.2",
+      "label": "0.8.A - Support for abhorrent political figures (2nd offense)",
+      "reason": "Repeated support for abhorrent political figures."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.8.B.1",
+      "label": "0.8.B - Political ridicule/disrespect (1st offense)",
+      "reason": "Ridiculing or disrespecting people over political views."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Mute",
+      "id": "0.8.B.2",
+      "label": "0.8.B - Political ridicule/disrespect (2nd offense)",
+      "reason": "Repeated ridicule or disrespect over political views."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.8.B.3",
+      "label": "0.8.B - Political ridicule/disrespect (3rd offense)",
+      "reason": "Persistent ridicule or disrespect over political views."
+    },
+
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "0.9.A.1",
+      "label": "0.9.A - Mocking disabilities (1st offense)",
+      "reason": "Mocking disabilities."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.9.A.2",
+      "label": "0.9.A - Mocking disabilities (2nd offense)",
+      "reason": "Repeated mockery of disabilities."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.9.A.3",
+      "label": "0.9.A - Mocking disabilities (3rd offense)",
+      "reason": "Persistent mockery of disabilities."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "0.9.B.1",
+      "label": "0.9.B - Indirect ableist slur (1st offense)",
+      "reason": "Indirectly employing ableist slurs."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "0.9.B.2",
+      "label": "0.9.B - Indirect ableist slur (2nd offense)",
+      "reason": "Repeated indirect ableist slur usage."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.9.B.3",
+      "label": "0.9.B - Indirect ableist slur (3rd offense)",
+      "reason": "Persistent indirect ableist slur usage."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "0.9.C.1",
+      "label": "0.9.C - Direct ableist slur (1st offense)",
+      "reason": "Directly employing ableist slurs."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "0.9.C.2",
+      "label": "0.9.C - Direct ableist slur (2nd offense)",
+      "reason": "Repeated direct ableist slur usage."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.9.C.3",
+      "label": "0.9.C - Direct ableist slur (3rd offense)",
+      "reason": "Persistent direct ableist slur usage."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "0.9.D.1",
+      "label": "0.9.D - Ableist content (1st offense)",
+      "reason": "Disseminating ableist content."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "0.9.D.2",
+      "label": "0.9.D - Ableist content (2nd offense)",
+      "reason": "Repeated dissemination of ableist content."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "0.9.D.3",
+      "label": "0.9.D - Ableist content (3rd offense)",
+      "reason": "Persistent dissemination of ableist content."
+    },
+
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.0.A",
+      "label": "1.0.A - Unauthorized disclosure of personal information",
+      "reason": "Unauthorized disclosure or illicit acquisition of personal information."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.0.B",
+      "label": "1.0.B - Blackmail using personal information",
+      "reason": "Using personal information to blackmail someone."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Profile Change / 1 Month Ban Until Changed",
+      "id": "1.0.C",
+      "label": "1.0.C - Profile impersonation",
+      "reason": "Mimicking someone's profile to impersonate them.",
+      "notes": "Ask them to change it first."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Punish to the extremity of the fake report",
+      "id": "1.0.D",
+      "label": "1.0.D - Faking evidence",
+      "reason": "Faking evidence as online defamation.",
+      "notes": "Mirror the punishment they tried to frame."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.0.E",
+      "label": "1.0.E - Scamming",
+      "reason": "Scamming if found guilty."
+    },
+
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Supervisor Investigation",
+      "id": "1.1.A",
+      "label": "1.1.A - Staff bias report",
+      "reason": "Report of bias or unfairness by staff.",
+      "notes": "Supervisors investigate."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Force Forfeit",
+      "id": "1.1.B.1",
+      "label": "1.1.B - Scheduling sabotage (1st offense)",
+      "reason": "Deliberately disrupting scheduling to weaken competition."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "1.1.B.2",
+      "label": "1.1.B - Scheduling sabotage (2nd offense)",
+      "reason": "Repeated deliberate scheduling sabotage."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.1.B.3",
+      "label": "1.1.B - Scheduling sabotage (3rd offense)",
+      "reason": "Persistent deliberate scheduling sabotage.",
+      "notes": "Captain punishment."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Force Forfeit",
+      "id": "1.1.C.1",
+      "label": "1.1.C - Poaching / bribing players (1st offense)",
+      "reason": "Poaching or bribing players to weaken teams."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "1.1.C.2",
+      "label": "1.1.C - Poaching / bribing players (2nd offense)",
+      "reason": "Repeated poaching or bribing of players."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.1.C.3",
+      "label": "1.1.C - Poaching / bribing players (3rd offense)",
+      "reason": "Persistent poaching or bribing of players."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.1.D",
+      "label": "1.1.D - DDoS attack",
+      "reason": "Distributed Denial of Service attacking."
+    },
+
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.A",
+      "label": "1.2.A - Standalone headset connected to PC in official play",
+      "reason": "Using standalone headsets through PCVR in official matches or ranked."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.B",
+      "label": "1.2.B - Reach elongation / worldscale",
+      "reason": "Using any method to elongate reach."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.C",
+      "label": "1.2.C - PSA / crouch jumping / rec room glitch",
+      "reason": "Playspace abuse or similar banned movement exploits."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.D",
+      "label": "1.2.D - Network manipulation / VPN",
+      "reason": "Using network manipulation such as VPNs."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.E",
+      "label": "1.2.E - Allowing cheaters or banned players on team",
+      "reason": "Knowingly allowing cheaters or banned players on your team.",
+      "notes": "Captain punishment plus team disqualification."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.F",
+      "label": "1.2.F - Game file interference",
+      "reason": "Interfering with game files."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.G",
+      "label": "1.2.G - Performance tampering software/technique",
+      "reason": "Tampering with game performance using software or techniques."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.H",
+      "label": "1.2.H - Out of map exploit",
+      "reason": "Getting out of the map when such exploits are possible."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.I",
+      "label": "1.2.I - Distributing cheating methods",
+      "reason": "Distributing methods of breaking cheating rules."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.J",
+      "label": "1.2.J - Lying about hardware/configuration",
+      "reason": "Misrepresenting hardware or evading staff questions about setup."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.K",
+      "label": "1.2.K - LIV camera use in game",
+      "reason": "Using LIV camera in a game."
+    },
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban at 3 Strikes",
+      "id": "1.2.L",
+      "label": "1.2.L - Purposeful DC flicking abuse",
+      "reason": "Purposeful or abusive DC flicking.",
+      "notes": "Perm ban at 3 strikes in a season."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.M",
+      "label": "1.2.M - Grabbing mechanic usage",
+      "reason": "Using grabbing mechanic in a game.",
+      "notes": "Auto FF scrim also applies."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "1.2.N.1",
+      "label": "1.2.N - Double settings on Steam (1st offense)",
+      "reason": "Changing hz on Steam in game.",
+      "notes": "Example: switching from 90hz to 72hz mid game."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.N.2",
+      "label": "1.2.N - Double settings on Steam (2nd offense)",
+      "reason": "Repeated use of double settings on Steam."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": 7776000,
+      "duration_text": "3 Month Ban",
+      "id": "1.2.O.1",
+      "label": "1.2.O - 3rd party software such as Walkin VR/OVR Dynamic Resolution (1st offense)",
+      "reason": "Using banned 3rd party software.",
+      "notes": "FPSvr is excluded."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.2.O.2",
+      "label": "1.2.O - 3rd party software such as Walkin VR/OVR Dynamic Resolution (2nd offense)",
+      "reason": "Repeated use of banned 3rd party software."
+    },
+
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.3.A.1",
+      "label": "1.3.A - Advertising personal Discord/server (1st offense)",
+      "reason": "Advertising a personal Discord/server without allowed affiliation."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.3.A.2",
+      "label": "1.3.A - Advertising personal Discord/server (2nd offense)",
+      "reason": "Repeated advertising of a personal Discord/server."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "1.3.A.3",
+      "label": "1.3.A - Advertising personal Discord/server (3rd offense)",
+      "reason": "Continued advertising of a personal Discord/server."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 15552000,
+      "duration_text": "6 Month Mute",
+      "id": "1.3.A.4",
+      "label": "1.3.A - Advertising personal Discord/server (4th offense)",
+      "reason": "Persistent advertising of a personal Discord/server."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": null,
+      "duration_text": "Perm Mute",
+      "id": "1.3.A.5",
+      "label": "1.3.A - Advertising personal Discord/server (5th offense)",
+      "reason": "Chronic advertising of a personal Discord/server."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.3.B.1",
+      "label": "1.3.B - Promotion in wrong channel (1st offense)",
+      "reason": "Promoting content in non-designated chat."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.3.B.2",
+      "label": "1.3.B - Promotion in wrong channel (2nd offense)",
+      "reason": "Repeated promotion in non-designated chat."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "1.3.B.3",
+      "label": "1.3.B - Promotion in wrong channel (3rd offense)",
+      "reason": "Continued promotion in non-designated chat."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 15552000,
+      "duration_text": "6 Month Mute",
+      "id": "1.3.B.4",
+      "label": "1.3.B - Promotion in wrong channel (4th offense)",
+      "reason": "Persistent promotion in non-designated chat."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": null,
+      "duration_text": "Perm Mute",
+      "id": "1.3.B.5",
+      "label": "1.3.B - Promotion in wrong channel (5th offense)",
+      "reason": "Chronic promotion in non-designated chat."
+    },
+
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.4.A.1",
+      "label": "1.4.A - Spamming / copypasta / text walls (1st offense)",
+      "reason": "Spamming, copy-paste spam, or text walls."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.4.A.2",
+      "label": "1.4.A - Spamming / copypasta / text walls (2nd offense)",
+      "reason": "Repeated spam or text walls."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "1.4.A.3",
+      "label": "1.4.A - Spamming / copypasta / text walls (3rd offense)",
+      "reason": "Continued spam or text walls."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 15552000,
+      "duration_text": "6 Month Mute",
+      "id": "1.4.A.4",
+      "label": "1.4.A - Spamming / copypasta / text walls (4th offense)",
+      "reason": "Persistent spam or text walls."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": null,
+      "duration_text": "Perm Mute",
+      "id": "1.4.A.5",
+      "label": "1.4.A - Spamming / copypasta / text walls (5th offense)",
+      "reason": "Chronic spam or text walls."
+    },
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warning",
+      "id": "1.4.B.1",
+      "label": "1.4.B - Excessive swearing (1st offense)",
+      "reason": "Excessive swearing."
+    },
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warning",
+      "id": "1.4.B.2",
+      "label": "1.4.B - Excessive swearing (2nd offense)",
+      "reason": "Repeated excessive swearing."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.4.B.3",
+      "label": "1.4.B - Excessive swearing (3rd offense)",
+      "reason": "Continued excessive swearing."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 259200,
+      "duration_text": "3 Day Mute",
+      "id": "1.4.B.4",
+      "label": "1.4.B - Excessive swearing (4th offense)",
+      "reason": "Persistent excessive swearing."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.4.B.5",
+      "label": "1.4.B - Excessive swearing (5th offense)",
+      "reason": "Chronic excessive swearing."
+    },
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Verbal Warning",
+      "id": "1.4.C.1",
+      "label": "1.4.C - Misuse of scrim channels (1st offense)",
+      "reason": "Using the wrong channel for scrim/ref requests."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 3600,
+      "duration_text": "1 Hour Mute",
+      "id": "1.4.C.2",
+      "label": "1.4.C - Misuse of scrim channels (2nd offense)",
+      "reason": "Repeated misuse of scrim channels."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 259200,
+      "duration_text": "3 Day Mute",
+      "id": "1.4.C.3",
+      "label": "1.4.C - Misuse of scrim channels (3rd offense)",
+      "reason": "Persistent misuse of scrim channels."
+    },
+
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.5.A.1",
+      "label": "1.5.A - Hostility toward staff (1st offense)",
+      "reason": "Hostility directed toward staff members."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "1.5.A.2",
+      "label": "1.5.A - Hostility toward staff (2nd offense)",
+      "reason": "Repeated hostility directed toward staff members."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.5.A.3",
+      "label": "1.5.A - Hostility toward staff (3rd offense)",
+      "reason": "Persistent hostility directed toward staff members."
+    },
+
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Captain 3 Month Ban + Team Disbandment",
+      "id": "1.6.A",
+      "label": "1.6.A - Allowing banned players in official scrims",
+      "reason": "Willingly allowing banned players to partake in official scrims.",
+      "notes": "Banned player receives maximum punishment."
+    },
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warning",
+      "id": "1.6.B.1",
+      "label": "1.6.B - Helping banned members / ban evasion (1st offense)",
+      "reason": "Facilitating banned players in competitive scenes or failing to report evasion."
+    },
+    {
+      "action": "ban",
+      "duration_seconds": null,
+      "duration_text": "Perm Ban",
+      "id": "1.6.B.2",
+      "label": "1.6.B - Helping banned members / ban evasion (2nd offense)",
+      "reason": "Repeated facilitation of banned players or ban evasion."
+    },
+
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warning to Remove",
+      "id": "1.7.A.1",
+      "label": "1.7.A - Voice changer (1st offense)",
+      "reason": "Using a voice changer in VC."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.7.A.2",
+      "label": "1.7.A - Voice changer (2nd offense)",
+      "reason": "Repeated voice changer usage."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.7.A.3",
+      "label": "1.7.A - Voice changer (3rd offense)",
+      "reason": "Continued voice changer usage."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": null,
+      "duration_text": "Server Mute",
+      "id": "1.7.A.4",
+      "label": "1.7.A - Voice changer (4th offense)",
+      "reason": "Persistent voice changer usage."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.7.B.1",
+      "label": "1.7.B - VC disruption / soundboard / mic spam (1st offense)",
+      "reason": "Disrupting VC with loud soundboards, mic spam, or similar."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.7.B.2",
+      "label": "1.7.B - VC disruption / soundboard / mic spam (2nd offense)",
+      "reason": "Repeated VC disruption."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.7.C.1",
+      "label": "1.7.C - Minor VC argument",
+      "reason": "Engaging in a minor argument or conflict in VC."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 604800,
+      "duration_text": "1 Week Mute",
+      "id": "1.7.C.2",
+      "label": "1.7.C - Medium VC argument",
+      "reason": "Engaging in a medium-severity argument or conflict in VC."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 2592000,
+      "duration_text": "1 Month Mute",
+      "id": "1.7.C.3",
+      "label": "1.7.C - Major VC argument",
+      "reason": "Engaging in a major argument or conflict in VC."
+    },
+    {
+      "action": "warn",
+      "duration_seconds": null,
+      "duration_text": "Warn",
+      "id": "1.7.D.1",
+      "label": "1.7.D - Encouraging an argument (1st offense)",
+      "reason": "Encouraging an argument in VC."
+    },
+    {
+      "action": "mute",
+      "duration_seconds": 86400,
+      "duration_text": "1 Day Mute",
+      "id": "1.7.D.2",
+      "label": "1.7.D - Encouraging an argument (2nd offense)",
+      "reason": "Repeatedly encouraging arguments in VC."
+    },
+
+    {
+      "action": "manual",
+      "duration_seconds": null,
+      "duration_text": "Team Match Penalty Escalation",
+      "id": "1.8.A",
+      "label": "1.8.A - Swearing during official matches",
+      "reason": "Swearing, cussing, or slurs during official matches.",
+      "notes": "Use manual handling for warnings, sit-outs, point forfeits, or match forfeits."
+    }
+  ]
+}

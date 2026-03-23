@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-banner">
+  <div class="hero-copy panel">
+    <span class="panel-kicker">User Dossier</span>
+    <h2>{{ profile.display_name }}</h2>
+    <p>User ID: <strong>{{ profile.user_id }}</strong></p>
+    {% if profile.aliases_text %}
+      <p class="muted-copy">Known aliases: {{ profile.aliases_text }}</p>
+    {% endif %}
+  </div>
+
+  <div class="panel hero-side">
+    <span class="panel-kicker">Access Snapshot</span>
+    <div class="text-list">
+      <p><strong>Support Block:</strong> {{ block_status }}</p>
+      <p><strong>Block Reason:</strong> {{ block_reason }}</p>
+      <p><strong>Staff Level:</strong> {{ target_staff_level_label }}</p>
+      <p><strong>Last Activity:</strong> {{ profile.last_activity }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="metric-strip">
+  <article class="metric-card panel"><span>Total Cases</span><strong>{{ profile.total_cases }}</strong></article>
+  <article class="metric-card panel"><span>Punishments</span><strong>{{ profile.punishment_count }}</strong></article>
+  <article class="metric-card panel"><span>Active Flags</span><strong>{{ profile.active_punishments }}</strong></article>
+  <article class="metric-card panel"><span>Proof Records</span><strong>{{ profile.proof_count }}</strong></article>
+</section>
+
+<section class="content-grid">
+  <article class="panel">
+    <span class="panel-kicker">Case Involvement</span>
+    <h3>Visible cases</h3>
+    <div class="card-list">
+      {% for record in visible_cases %}
+        <a class="case-row" href="/transcripts/{{ record.ticket_id }}">
+          <div>
+            <div class="badge-row">
+              <span class="section-badge section-{{ record.section }}">{{ record.section_label }}</span>
+              <span class="state-badge">{{ record.involvement }}</span>
+            </div>
+            <strong>{{ record.channel_name }}</strong>
+            <p>{{ record.state_label }} · {{ record.messages }} messages · {{ record.attachments }} attachments</p>
+          </div>
+          <small>{{ record.activity_at|datetime }}</small>
+        </a>
+      {% else %}
+        <p class="muted-copy">No visible case involvement for this user.</p>
+      {% endfor %}
+    </div>
+  </article>
+
+  <article class="panel">
+    <span class="panel-kicker">Moderation History</span>
+    <h3>Visible punishments</h3>
+    <div class="card-list">
+      {% for punishment in visible_punishments %}
+        <article class="activity-row">
+          <div>
+            <div class="badge-row">
+              <span class="section-badge section-neutral">{{ punishment.action }}</span>
+              <span class="state-badge">{{ punishment.status }}</span>
+            </div>
+            <strong>{{ punishment.rule_label }}</strong>
+            <p>{{ punishment.reason }}</p>
+            {% if punishment.ticket_url %}
+              <p><a href="{{ punishment.ticket_url }}">{{ punishment.source_label }}</a></p>
+            {% else %}
+              <p>{{ punishment.source_label }}</p>
+            {% endif %}
+            {% if punishment.proof_url %}
+              <p><a href="{{ punishment.proof_url }}" target="_blank" rel="noreferrer">{{ punishment.proof_name }}</a></p>
+            {% endif %}
+          </div>
+          <small>{{ punishment.created_at }}</small>
+        </article>
+      {% else %}
+        <p class="muted-copy">No visible punishments for this user.</p>
+      {% endfor %}
+    </div>
+  </article>
+</section>
+
+<section class="content-grid">
+  <article class="panel">
+    <span class="panel-kicker">Staff Activity</span>
+    <h3>If this user is staff</h3>
+    <div class="leaderboard-grid">
+      <div class="leader-row"><span>Handled</span><strong>{{ staff_activity.handled }}</strong></div>
+      <div class="leader-row"><span>Spoken</span><strong>{{ staff_activity.spoken }}</strong></div>
+      <div class="leader-row"><span>Closed</span><strong>{{ staff_activity.closed }}</strong></div>
+    </div>
+  </article>
+</section>
+{% endblock %}

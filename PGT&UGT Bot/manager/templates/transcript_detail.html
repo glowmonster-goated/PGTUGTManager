@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-banner">
+  <div class="hero-copy panel">
+    <div class="badge-row">
+      <span class="section-badge section-{{ ticket.section }}">{{ ticket.section|replace("_", " ")|title }}</span>
+      <span class="state-badge">{{ ticket.state|replace("_", " ")|title }}</span>
+    </div>
+    <h2>{{ ticket.channel_name }}</h2>
+    <p>{{ ticket.ticket_id }} · Owner {{ ticket.owner_display_name or ticket.owner_name or ticket.owner_id }}</p>
+    {% if limited_view_notice %}
+      <p class="limited-note">{{ limited_view_notice }}</p>
+    {% endif %}
+  </div>
+
+  <div class="panel hero-side">
+    <span class="panel-kicker">Case Totals</span>
+    <div class="hero-stat-grid">
+      <div><small>Messages</small><strong>{{ summary.messages }}</strong></div>
+      <div><small>Attachments</small><strong>{{ summary.attachments }}</strong></div>
+      <div><small>Images</small><strong>{{ summary.images }}</strong></div>
+      <div><small>Videos</small><strong>{{ summary.videos }}</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-grid content-grid-wide">
+  <div class="stack-grid">
+    <article class="panel">
+      <span class="panel-kicker">Transcript Feed</span>
+      <h3>Message history</h3>
+      <div class="message-stack">
+        {% for message in transcript.messages %}
+          <article class="message-card {% if message.deleted %}message-card-deleted{% endif %}">
+            <div class="message-head">
+              <img class="message-avatar" src="{{ message.author_avatar_url }}" alt="{{ message.author_display_name }}">
+              <div>
+                <div class="badge-row">
+                  <strong>{{ message.author_display_name }}</strong>
+                  {% if message.author_is_staff %}<span class="state-badge">Staff</span>{% endif %}
+                  {% if message.is_bot %}<span class="state-badge">Bot</span>{% endif %}
+                  {% if message.deleted %}<span class="state-badge">Deleted</span>{% endif %}
+                </div>
+                <p class="muted-copy">{{ message.author_name }} · {{ message.created_at|datetime }}</p>
+              </div>
+            </div>
+
+            {% if message.redacted_deleted_staff_message %}
+              <p class="muted-copy">Deleted staff message hidden from non-staff viewers.</p>
+            {% elif message.content %}
+              <div class="message-body">{{ message.content }}</div>
+            {% else %}
+              <p class="muted-copy">No text content.</p>
+            {% endif %}
+
+            {% if message.attachments %}
+              <div class="attachment-grid">
+                {% for attachment in message.attachments %}
+                  <a class="attachment-card" href="{{ attachment.served_path or attachment.url }}" target="_blank" rel="noreferrer">
+                    <strong>{{ attachment.filename }}</strong>
+                    <small>{{ attachment.size }} bytes</small>
+                    {% if attachment.preview_kind == "image" %}
+                      <img class="attachment-preview" src="{{ attachment.served_path or attachment.url }}" alt="{{ attachment.filename }}">
+                    {% elif attachment.preview_kind == "video" %}
+                      <video class="attachment-preview" controls preload="metadata">
+                        <source src="{{ attachment.served_path or attachment.url }}" type="{{ attachment.content_type }}">
+                      </video>
+                    {% endif %}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {% if message.embeds %}
+              <div class="embed-stack">
+                {% for embed in message.embeds %}
+                  <div class="embed-card">
+                    {% if embed.title %}<strong>{{ embed.title }}</strong>{% endif %}
+                    {% if embed.description %}<p>{{ embed.description }}</p>{% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </article>
+        {% else %}
+          <p class="muted-copy">No stored messages for this case yet.</p>
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+
+  <div class="stack-grid">
+    <article class="panel">
+      <span class="panel-kicker">Roster</span>
+      <h3>Visible participants</h3>
+      <div class="card-list">
+        {% for participant in participant_rows %}
+          <div class="leader-row">
+            <span>{{ participant.display_name }}{% if participant.is_staff %} · staff{% endif %}</span>
+            <strong>{{ participant.user_id }}</strong>
+          </div>
+        {% else %}
+          <p class="muted-copy">No participant data stored.</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="panel-kicker">Access Gates</span>
+      <h3>Transcript privacy</h3>
+      {% if privacy_saved %}
+        <p class="success-copy">Transcript access updated.</p>
+      {% endif %}
+      <div class="card-list">
+        {% for option in privacy_options %}
+          <div class="leader-row"><span>{{ option.label }}</span><strong>{% if option.checked %}On{% else %}Off{% endif %}</strong></div>
+        {% endfor %}
+      </div>
+      {% if can_manage_privacy %}
+        <form class="privacy-form" method="post" action="/transcripts/{{ ticket.ticket_id }}/privacy">
+          {% for option in privacy_options %}
+            <label class="checkbox-row">
+              <input type="checkbox" name="{{ option.key }}" {% if option.checked %}checked{% endif %}>
+              <span>{{ option.label }}</span>
+            </label>
+          {% endfor %}
+          <button class="primary-button" type="submit">Save Privacy</button>
+        </form>
+      {% endif %}
+    </article>
+
+    <article class="panel">
+      <span class="panel-kicker">Linked Punishments</span>
+      <h3>Moderation outcomes</h3>
+      <div class="card-list">
+        {% for punishment in punishment_cards %}
+          <article class="activity-row">
+            <div>
+              <div class="badge-row">
+                <span class="section-badge section-neutral">{{ punishment.action }}</span>
+                <span class="state-badge">{{ punishment.status }}</span>
+              </div>
+              <strong>{{ punishment.rule_label }}</strong>
+              <p>{{ punishment.reason }}</p>
+              {% if punishment.proof_url %}
+                <p><a href="{{ punishment.proof_url }}" target="_blank" rel="noreferrer">{{ punishment.proof_name }}</a></p>
+              {% endif %}
+            </div>
+            <small>{{ punishment.created_at }}</small>
+          </article>
+        {% else %}
+          <p class="muted-copy">No punishments were linked to this case.</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="panel-kicker">Case Intelligence</span>
+      <h3>Metadata</h3>
+      <div class="leaderboard-grid">
+        <div class="leader-row"><span>Created</span><strong>{{ ticket.created_at|datetime }}</strong></div>
+        <div class="leader-row"><span>Closed</span><strong>{{ ticket.closed_at|datetime }}</strong></div>
+        <div class="leader-row"><span>Deleted</span><strong>{{ ticket.deleted_at|datetime }}</strong></div>
+        <div class="leader-row"><span>Created By</span><strong>{{ ticket.created_by_id or "Unknown" }}</strong></div>
+        <div class="leader-row"><span>Closed By</span><strong>{{ ticket.closed_by or "Not closed" }}</strong></div>
+        <div class="leader-row"><span>Deleted By</span><strong>{{ ticket.deleted_by or "Not deleted" }}</strong></div>
+      </div>
+
+      {% if move_history %}
+        <div class="text-list">
+          <p><strong>Move History</strong></p>
+          {% for item in move_history %}
+            <p>{{ item.from_label }} to {{ item.to_label }} · {{ item.moved_at }} · {{ item.moved_by }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </article>
+  </div>
+</section>
+{% endblock %}

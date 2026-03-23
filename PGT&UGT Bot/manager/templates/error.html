@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel empty-panel">
+  <span class="panel-kicker">Portal Notice</span>
+  <h2>{{ error_title }}</h2>
+  <p>{{ error_message }}</p>
+  {% if user %}
+    <a class="primary-button" href="/dashboard">Return to Dashboard</a>
+  {% else %}
+    <a class="primary-button" href="/login">Log in with Discord</a>
+  {% endif %}
+</section>
+{% endblock %}

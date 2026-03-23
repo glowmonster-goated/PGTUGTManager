@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page_title %}{{ page_title }} · {% endif %}{{ brand_name }}</title>
+  <link rel="stylesheet" href="/static/style.css?v={{ asset_version }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="ambient ambient-three"></div>
+
+  <div class="site-shell">
+    {% if user %}
+      <aside class="side-rail">
+        <a class="brand-lockup" href="/dashboard">
+          <span class="brand-mark">UGT</span>
+          <span class="brand-copy">
+            <strong>{{ brand_name }}</strong>
+            <small>Staff Operations Portal</small>
+          </span>
+        </a>
+
+        <nav class="rail-nav">
+          {% for item in nav_items %}
+            <a class="rail-link {% if current_path == item.href or (item.href == '/cases' and current_path.startswith('/transcripts')) or (item.href == '/users' and current_path.startswith('/users/')) %}rail-link-active{% endif %}" href="{{ item.href }}">{{ item.label }}</a>
+          {% endfor %}
+        </nav>
+
+        <section class="rail-card">
+          <span class="panel-kicker">Signed In</span>
+          <div class="identity-card">
+            <img class="identity-avatar" src="{{ user.avatar_url }}" alt="{{ user.display_name }}">
+            <div>
+              <strong>{{ user.display_name }}</strong>
+              <p>{{ user.user_id }}</p>
+            </div>
+          </div>
+          <div class="role-pill">{{ user_role_label }}</div>
+        </section>
+
+        <section class="rail-card">
+          <span class="panel-kicker">Managed Spaces</span>
+          <div class="mini-list">
+            {% for guild in managed_guilds %}
+              <div class="mini-row">
+                <strong>{{ guild.display_name }}</strong>
+                <small>{{ guild.label }}</small>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="rail-card rail-card-accent">
+          <span class="panel-kicker">Portal Scope</span>
+          <p>Cases, evidence, punishments, and user dossiers all live here so staff can work from one source of truth.</p>
+          <a class="ghost-button" href="/logout">Log out</a>
+        </section>
+      </aside>
+    {% endif %}
+
+    <main class="main-shell {% if not user %}main-shell-public{% endif %}">
+      <header class="top-frame">
+        <div>
+          <span class="page-kicker">{{ page_subtitle }}</span>
+          <h1>{{ page_title }}</h1>
+        </div>
+        <div class="top-actions">
+          {% if user %}
+            <a class="chip-link" href="/cases">Case Library</a>
+            {% if "/transcripts/" in current_path %}
+              <a class="chip-link" href="/cases">Back to Cases</a>
+            {% endif %}
+          {% else %}
+            <a class="ghost-button" href="{{ login_url or '/login' }}">Log in with Discord</a>
+          {% endif %}
+        </div>
+      </header>
+
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</body>
+</html>

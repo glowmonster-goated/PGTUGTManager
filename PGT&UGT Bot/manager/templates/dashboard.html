@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-banner">
+  <div class="hero-copy panel">
+    <span class="panel-kicker">Operations Command</span>
+    <h2>One dashboard for cases, people, evidence, and moderation history.</h2>
+    <p>
+      This portal is now structured like a general staff site. It gives your team a live case board,
+      punishment desk, and user dossiers while staying ready for more internal tools later.
+    </p>
+  </div>
+
+  <div class="panel hero-side">
+    <span class="panel-kicker">Portal Snapshot</span>
+    <div class="hero-stat-grid">
+      <div>
+        <small>Visible Cases</small>
+        <strong>{{ metrics.total_cases }}</strong>
+      </div>
+      <div>
+        <small>Active Punishments</small>
+        <strong>{{ metrics.active_punishments }}</strong>
+      </div>
+      <div>
+        <small>Tracked Users</small>
+        <strong>{{ metrics.tracked_users }}</strong>
+      </div>
+      <div>
+        <small>Proof Records</small>
+        <strong>{{ metrics.proof_records }}</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metric-strip">
+  <article class="metric-card panel">
+    <span>Open Queue</span>
+    <strong>{{ metrics.open_cases }}</strong>
+  </article>
+  <article class="metric-card panel">
+    <span>Closed Cases</span>
+    <strong>{{ metrics.closed_cases }}</strong>
+  </article>
+  <article class="metric-card panel">
+    <span>Deleted Cases</span>
+    <strong>{{ metrics.deleted_cases }}</strong>
+  </article>
+  <article class="metric-card panel">
+    <span>Support</span>
+    <strong>{{ metrics.support_cases }}</strong>
+  </article>
+  <article class="metric-card panel">
+    <span>Appeals</span>
+    <strong>{{ metrics.appeal_cases }}</strong>
+  </article>
+  <article class="metric-card panel">
+    <span>Management</span>
+    <strong>{{ metrics.management_cases }}</strong>
+  </article>
+</section>
+
+<section class="content-grid content-grid-wide">
+  <div class="stack-grid">
+    <article class="panel">
+      <div class="section-head">
+        <div>
+          <span class="panel-kicker">Work Board</span>
+          <h3>Open queue</h3>
+        </div>
+        <a class="ghost-button" href="/cases?state=open">View all open</a>
+      </div>
+      <div class="card-list">
+        {% for record in open_queue %}
+          <a class="case-row" href="/transcripts/{{ record.ticket_id }}">
+            <div>
+              <div class="badge-row">
+                <span class="section-badge section-{{ record.section }}">{{ record.section_label }}</span>
+                <span class="state-badge">{{ record.state_label }}</span>
+              </div>
+              <strong>{{ record.channel_name }}</strong>
+              <p>{{ record.owner_label }} · {{ record.messages }} messages · {{ record.attachments }} attachments</p>
+            </div>
+            <small>{{ record.created_at }}</small>
+          </a>
+        {% else %}
+          <p class="muted-copy">No visible open cases right now.</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="panel">
+      <div class="section-head">
+        <div>
+          <span class="panel-kicker">Archive Flow</span>
+          <h3>Recently closed</h3>
+        </div>
+        <a class="ghost-button" href="/cases?state=closed">View closed</a>
+      </div>
+      <div class="card-list">
+        {% for record in recent_closed %}
+          <a class="case-row" href="/transcripts/{{ record.ticket_id }}">
+            <div>
+              <div class="badge-row">
+                <span class="section-badge section-{{ record.section }}">{{ record.section_label }}</span>
+                <span class="state-badge">{{ record.state_label }}</span>
+              </div>
+              <strong>{{ record.channel_name }}</strong>
+              <p>{{ record.owner_label }} · {{ record.linked_punishment_count }} linked punishments</p>
+            </div>
+            <small>{% if record.deleted_at_raw %}{{ record.deleted_at }}{% else %}{{ record.closed_at }}{% endif %}</small>
+          </a>
+        {% else %}
+          <p class="muted-copy">Nothing has been closed or deleted in the visible archive yet.</p>
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+
+  <div class="stack-grid">
+    <article class="panel">
+      <div class="section-head">
+        <div>
+          <span class="panel-kicker">Moderation Feed</span>
+          <h3>Recent punishments</h3>
+        </div>
+        <a class="ghost-button" href="/punishments">Open desk</a>
+      </div>
+      <div class="card-list">
+        {% for punishment in recent_punishments %}
+          <article class="activity-row">
+            <div>
+              <div class="badge-row">
+                <span class="section-badge section-neutral">{{ punishment.action }}</span>
+                <span class="state-badge">{{ punishment.status }}</span>
+              </div>
+              <strong>User {{ punishment.user_id }}</strong>
+              <p>{{ punishment.rule_label }} · {{ punishment.duration_text }}</p>
+            </div>
+            <small>{{ punishment.created_at }}</small>
+          </article>
+        {% else %}
+          <p class="muted-copy">No visible punishment records yet.</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="panel">
+      <span class="panel-kicker">Command Map</span>
+      <h3>Staff workflow quick guide</h3>
+      <div class="text-list">
+        {% for line in command_handbook %}
+          <p>{{ line }}</p>
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="content-grid">
+  <article class="panel">
+    <span class="panel-kicker">Portal Modules</span>
+    <h3>General staff website sections</h3>
+    <div class="module-grid">
+      {% for module in module_cards %}
+        <a class="module-card" href="{{ module.href }}">
+          <span>{{ module.eyebrow }}</span>
+          <strong>{{ module.title }}</strong>
+          <p>{{ module.description }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </article>
+
+  <article class="panel">
+    <span class="panel-kicker">Staff Leaders</span>
+    <h3>Visible ticket activity</h3>
+    <div class="leaderboard-grid">
+      <div>
+        <h4>Handled</h4>
+        {% for item in leaderboards.handled %}
+          <div class="leader-row"><span>{{ item.label }}</span><strong>{{ item.value }}</strong></div>
+        {% else %}
+          <p class="muted-copy">No staff stats recorded yet.</p>
+        {% endfor %}
+      </div>
+      <div>
+        <h4>Spoken</h4>
+        {% for item in leaderboards.spoken %}
+          <div class="leader-row"><span>{{ item.label }}</span><strong>{{ item.value }}</strong></div>
+        {% else %}
+          <p class="muted-copy">No staff stats recorded yet.</p>
+        {% endfor %}
+      </div>
+      <div>
+        <h4>Closed</h4>
+        {% for item in leaderboards.closed %}
+          <div class="leader-row"><span>{{ item.label }}</span><strong>{{ item.value }}</strong></div>
+        {% else %}
+          <p class="muted-copy">No staff stats recorded yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="content-grid">
+  {% for item in expansion_cards %}
+    <article class="panel panel-accent">
+      <span class="panel-kicker">Future Friendly</span>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+    </article>
+  {% endfor %}
+</section>
+{% endblock %}

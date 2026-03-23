@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel filter-panel">
+  <div class="section-head">
+    <div>
+      <span class="panel-kicker">People Search</span>
+      <h3>Browse tracked users</h3>
+    </div>
+    <span class="support-chip">{{ user_metrics.filtered }} results</span>
+  </div>
+
+  <form class="filter-form" method="get" action="/users">
+    <input type="search" name="q" value="{{ search_query }}" placeholder="Search by user ID, display name, or alias">
+    <button class="primary-button" type="submit">Search</button>
+  </form>
+</section>
+
+<section class="metric-strip">
+  <article class="metric-card panel"><span>Tracked Users</span><strong>{{ user_metrics.tracked }}</strong></article>
+  <article class="metric-card panel"><span>Filtered</span><strong>{{ user_metrics.filtered }}</strong></article>
+  <article class="metric-card panel"><span>Staff Profiles</span><strong>{{ user_metrics.staff }}</strong></article>
+  <article class="metric-card panel"><span>Active Flags</span><strong>{{ user_metrics.active_flags }}</strong></article>
+</section>
+
+<section class="card-grid">
+  {% for row in user_rows %}
+    <a class="panel user-card" href="/users/{{ row.user_id }}">
+      <div class="section-head">
+        <strong>{{ row.display_name }}</strong>
+        <span class="state-badge">{{ row.user_id }}</span>
+      </div>
+      {% if row.aliases_text %}
+        <p class="muted-copy">Aliases: {{ row.aliases_text }}</p>
+      {% endif %}
+      <div class="detail-grid-mini">
+        <div><small>Cases</small><strong>{{ row.total_cases }}</strong></div>
+        <div><small>Punishments</small><strong>{{ row.punishment_count }}</strong></div>
+        <div><small>Active</small><strong>{{ row.active_punishments }}</strong></div>
+        <div><small>Proof</small><strong>{{ row.proof_count }}</strong></div>
+      </div>
+      <p class="muted-copy">Last activity: {{ row.last_activity }}</p>
+    </a>
+  {% else %}
+    <article class="panel empty-panel">
+      <h3>No users match this search</h3>
+      <p>Try searching with a full ID or a shorter display name.</p>
+    </article>
+  {% endfor %}
+</section>
+{% endblock %}
